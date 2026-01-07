@@ -509,68 +509,12 @@
             color: white;
         }
 
-        /* Social Media Section */
-        .social-media {
-            background-color: var(--light-color);
-            text-align: center;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .social-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: var(--transition);
-            width: 120px;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-10px);
-        }
-
-        .icon-circle {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            font-size: 1.8rem;
-            color: white;
-        }
-
-        .linkedin-bg {
-            background-color: #0077b5;
-        }
-
-        .instagram-bg {
-            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-        }
-
-        .facebook-bg {
-            background-color: #1877f2;
-        }
-
-        .social-icon span {
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
         /* Contact Section */
         .contact-section {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
+            padding: 100px 0;
         }
 
         .contact-section .section-title h2 {
@@ -581,6 +525,7 @@
             max-width: 700px;
             margin: 0 auto 40px;
             font-size: 1.1rem;
+            color: #ddd;
         }
 
         .contact-buttons {
@@ -588,6 +533,7 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-bottom: 50px;
         }
 
         .contact-btn {
@@ -607,6 +553,74 @@
             background-color: white;
             color: var(--primary-color);
             transform: translateY(-3px);
+        }
+
+        .social-media-section {
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-media-title {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: var(--transition);
+            width: 120px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 2rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .linkedin-bg {
+            background-color: #0077b5;
+        }
+
+        .instagram-bg {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+
+        .facebook-bg {
+            background-color: #1877f2;
+        }
+
+        .social-icon:hover .icon-circle {
+            transform: scale(1.1);
+        }
+
+        .social-icon span {
+            font-weight: 500;
+            font-size: 1rem;
         }
 
         /* Footer */
@@ -749,7 +763,7 @@
             }
             
             .social-icons {
-                gap: 20px;
+                gap: 25px;
             }
             
             .social-icon {
@@ -784,13 +798,17 @@
             }
             
             .social-icon {
-                width: 80px;
+                width: 90px;
             }
             
             .icon-circle {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .contact-section {
+                padding: 70px 0;
             }
         }
     </style>
@@ -813,7 +831,6 @@
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#education">Education</a></li>
-                        <li><a href="#social">Social</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -1038,36 +1055,6 @@
         </div>
     </section>
 
-    <!-- Social Media Section -->
-    <section id="social" class="social-media">
-        <div class="container">
-            <div class="section-title">
-                <h2>CONNECT WITH ME</h2>
-            </div>
-            <p>Feel free to connect with me on social media for professional networking and updates.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
-                    <div class="icon-circle linkedin-bg">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://www.instagram.com/kunal_kumar__80" target="_blank" class="social-icon">
-                    <div class="icon-circle instagram-bg">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" class="social-icon">
-                    <div class="icon-circle facebook-bg">
-                        <i class="fab fa-facebook-f"></i>
-                    </div>
-                    <span>Facebook</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
@@ -1075,6 +1062,7 @@
                 <h2>CONTACT</h2>
             </div>
             <p>If you're looking for a reliable MIS Executive skilled in reporting, dashboards, and automation, feel free to connect with me.</p>
+            
             <div class="contact-buttons">
                 <a href="mailto:kunalkumar805555@gmail.com" class="contact-btn">
                     <i class="fas fa-envelope"></i> Send Email
@@ -1086,17 +1074,30 @@
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             </div>
-            <div style="margin-top: 40px;">
-                <h3 style="margin-bottom: 20px; font-weight: 400;">Also find me on:</h3>
-                <div class="social-icons" style="justify-content: center; gap: 20px;">
-                    <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: white;">
-                        <i class="fab fa-linkedin fa-2x"></i>
+            
+            <!-- Social Media Section inside Contact -->
+            <div class="social-media-section">
+                <h3 class="social-media-title">CONNECT WITH ME</h3>
+                <p>Feel free to connect with me on social media for professional networking and updates.</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                        <div class="icon-circle linkedin-bg">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <span>LinkedIn</span>
                     </a>
-                    <a href="https://www.instagram.com/kunal_kumar__80" target="_blank" style="color: white;">
-                        <i class="fab fa-instagram fa-2x"></i>
+                    <a href="https://www.instagram.com/kunal_kumar__80?igsh=bTN5dTZlb3BjbDhz" target="_blank" class="social-icon">
+                        <div class="icon-circle instagram-bg">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <span>Instagram</span>
                     </a>
-                    <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" style="color: white;">
-                        <i class="fab fa-facebook fa-2x"></i>
+                    <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" class="social-icon">
+                        <div class="icon-circle facebook-bg">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <span>Facebook</span>
                     </a>
                 </div>
             </div>
@@ -1117,19 +1118,6 @@
                 <div class="contact-item" style="margin: 0 15px;">
                     <i class="fas fa-envelope"></i>
                     <a href="mailto:kunalkumar805555@gmail.com" style="color: white;">kunalkumar805555@gmail.com</a>
-                </div>
-            </div>
-            <div style="margin: 20px 0;">
-                <div class="social-icons" style="justify-content: center; gap: 20px;">
-                    <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: white;">
-                        <i class="fab fa-linkedin fa-1x"></i>
-                    </a>
-                    <a href="https://www.instagram.com/kunal_kumar__80" target="_blank" style="color: white;">
-                        <i class="fab fa-instagram fa-1x"></i>
-                    </a>
-                    <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" style="color: white;">
-                        <i class="fab fa-facebook fa-1x"></i>
-                    </a>
                 </div>
             </div>
             <div class="copyright">
