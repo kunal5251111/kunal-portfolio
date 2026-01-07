@@ -155,6 +155,7 @@
 
         .contact-item a:hover {
             color: var(--secondary-color);
+            text-decoration: underline;
         }
 
         /* Section Styling */
@@ -508,6 +509,63 @@
             color: white;
         }
 
+        /* Social Media Section */
+        .social-media {
+            background-color: var(--light-color);
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+            width: 120px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .linkedin-bg {
+            background-color: #0077b5;
+        }
+
+        .instagram-bg {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+
+        .facebook-bg {
+            background-color: #1877f2;
+        }
+
+        .social-icon span {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
         /* Contact Section */
         .contact-section {
             background-color: var(--primary-color);
@@ -563,6 +621,60 @@
             margin-top: 20px;
             opacity: 0.8;
             font-size: 0.9rem;
+        }
+
+        /* Copy to Clipboard Feature */
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Clickable Phone Number */
+        .clickable-phone {
+            cursor: pointer;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .clickable-phone:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .clickable-phone::after {
+            content: 'Click to call';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .clickable-phone:hover::after {
+            opacity: 1;
         }
 
         /* Responsive Design */
@@ -636,6 +748,14 @@
                 align-items: center;
             }
             
+            .social-icons {
+                gap: 20px;
+            }
+            
+            .social-icon {
+                width: 100px;
+            }
+            
             .contact-btn {
                 width: 100%;
                 max-width: 300px;
@@ -662,10 +782,23 @@
             .timeline::after {
                 left: 21px;
             }
+            
+            .social-icon {
+                width: 80px;
+            }
+            
+            .icon-circle {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Copy Notification -->
+    <div id="copyNotification" class="copy-notification">Copied to clipboard!</div>
+
     <!-- Header & Navigation -->
     <header>
         <div class="container">
@@ -680,6 +813,7 @@
                         <li><a href="#skills">Skills</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#education">Education</a></li>
+                        <li><a href="#social">Social</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -696,7 +830,7 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>9643359419</span>
+                        <a href="tel:+919643359419" class="clickable-phone">+91 96433 59419</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -904,6 +1038,36 @@
         </div>
     </section>
 
+    <!-- Social Media Section -->
+    <section id="social" class="social-media">
+        <div class="container">
+            <div class="section-title">
+                <h2>CONNECT WITH ME</h2>
+            </div>
+            <p>Feel free to connect with me on social media for professional networking and updates.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                    <div class="icon-circle linkedin-bg">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/kunal_kumar__80" target="_blank" class="social-icon">
+                    <div class="icon-circle instagram-bg">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" class="social-icon">
+                    <div class="icon-circle facebook-bg">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
@@ -913,11 +1077,28 @@
             <p>If you're looking for a reliable MIS Executive skilled in reporting, dashboards, and automation, feel free to connect with me.</p>
             <div class="contact-buttons">
                 <a href="mailto:kunalkumar805555@gmail.com" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Email Me
+                    <i class="fas fa-envelope"></i> Send Email
                 </a>
-                <a href="tel:9643359419" class="contact-btn">
-                    <i class="fas fa-phone"></i> Call Me
+                <a href="tel:+919643359419" class="contact-btn">
+                    <i class="fas fa-phone"></i> Call Now
                 </a>
+                <a href="https://wa.me/919643359419?text=Hello%20Kunal,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you" target="_blank" class="contact-btn" style="background-color: #25D366;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            <div style="margin-top: 40px;">
+                <h3 style="margin-bottom: 20px; font-weight: 400;">Also find me on:</h3>
+                <div class="social-icons" style="justify-content: center; gap: 20px;">
+                    <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: white;">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kunal_kumar__80" target="_blank" style="color: white;">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" style="color: white;">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -928,9 +1109,32 @@
             <div class="logo">
                 <h1>KUNAL <span>KUMAR</span></h1>
             </div>
-            <p>MIS Executive | Data & Reporting Specialist</p>
+            <div class="contact-info" style="justify-content: center; margin: 20px 0; flex-wrap: wrap;">
+                <div class="contact-item" style="margin: 0 15px;">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+919643359419" style="color: white;">+91 96433 59419</a>
+                </div>
+                <div class="contact-item" style="margin: 0 15px;">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:kunalkumar805555@gmail.com" style="color: white;">kunalkumar805555@gmail.com</a>
+                </div>
+            </div>
+            <div style="margin: 20px 0;">
+                <div class="social-icons" style="justify-content: center; gap: 20px;">
+                    <a href="https://www.linkedin.com/in/kunal-kumar-2b6839234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" style="color: white;">
+                        <i class="fab fa-linkedin fa-1x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kunal_kumar__80" target="_blank" style="color: white;">
+                        <i class="fab fa-instagram fa-1x"></i>
+                    </a>
+                    <a href="https://www.facebook.com/share/1D9GiLDm2f/" target="_blank" style="color: white;">
+                        <i class="fab fa-facebook fa-1x"></i>
+                    </a>
+                </div>
+            </div>
             <div class="copyright">
-                <p>&copy; 2023 Kunal Kumar. All rights reserved.</p>
+                <p>&copy; <span id="currentYear"></span> Kunal Kumar. All rights reserved.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">MIS Executive | Data & Reporting Specialist</p>
             </div>
         </div>
     </footer>
@@ -951,11 +1155,93 @@
             });
         });
 
-        // Add current year to copyright
+        // Set current year in footer
         document.addEventListener('DOMContentLoaded', function() {
             const year = new Date().getFullYear();
-            document.querySelector('.copyright p').textContent = `© ${year} Kunal Kumar. All rights reserved.`;
+            document.getElementById('currentYear').textContent = year;
         });
+
+        // Copy to clipboard functionality
+        function showCopyNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Copy phone number to clipboard on click
+        document.querySelectorAll('.clickable-phone').forEach(phoneElement => {
+            phoneElement.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Copy phone number to clipboard
+                const phoneNumber = this.textContent.trim();
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                    showCopyNotification();
+                    
+                    // Open dialer after a short delay
+                    setTimeout(() => {
+                        window.location.href = `tel:${phoneNumber}`;
+                    }, 500);
+                });
+            });
+        });
+
+        // Add copy functionality to email addresses
+        document.querySelectorAll('a[href^="mailto:"]').forEach(emailLink => {
+            emailLink.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                
+                const email = this.getAttribute('href').replace('mailto:', '');
+                navigator.clipboard.writeText(email).then(() => {
+                    showCopyNotification();
+                });
+                
+                return false;
+            });
+        });
+
+        // Mobile menu toggle for smaller screens
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Add mobile menu button for small screens
+        window.addEventListener('resize', function() {
+            const headerContent = document.querySelector('.header-content');
+            const nav = document.querySelector('nav ul');
+            
+            if (window.innerWidth <= 768) {
+                // Check if mobile menu button already exists
+                if (!document.querySelector('.mobile-menu-btn')) {
+                    const mobileMenuBtn = document.createElement('button');
+                    mobileMenuBtn.className = 'mobile-menu-btn';
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileMenuBtn.onclick = toggleMobileMenu;
+                    
+                    headerContent.insertBefore(mobileMenuBtn, headerContent.firstChild);
+                    
+                    // Initially hide the nav on mobile
+                    nav.style.display = 'none';
+                    nav.style.flexDirection = 'column';
+                    nav.style.width = '100%';
+                    nav.style.marginTop = '20px';
+                }
+            } else {
+                // Remove mobile menu button and show nav
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.remove();
+                }
+                nav.style.display = 'flex';
+            }
+        });
+
+        // Trigger resize event on load to set up mobile menu if needed
+        window.dispatchEvent(new Event('resize'));
     </script>
 </body>
 </html>
