@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Kumar | MIS Executive & Data Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #2980b9;
+            --light-color: #ecf0f1;
+            --dark-color: #1a252f;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--secondary-color);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background-color: white;
+            top: 22px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            top: 22px;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -50px;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .timeline-item ul {
+            padding-left: 20px;
+        }
+
+        .timeline-item li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background-color: var(--light-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .skill-item.highlight {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .project-img i {
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Education & Languages */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .language-item {
+            background-color: var(--light-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Strengths */
+        .strengths {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .strength-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .strength-item:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .strength-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .strength-item:hover i {
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-section .section-title h2 {
+            color: white;
+        }
+
+        .contact-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -40px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            nav li {
+                margin: 0;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .projects-grid,
+            .skills-container,
+            .info-cards,
+            .strengths {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>KUNAL <span>KUMAR</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>KUNAL KUMAR</h2>
+                <h3>MIS Executive | Data & Reporting Specialist</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>9643359419</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:kunalkumar805555@gmail.com">kunalkumar805555@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dadri, Gautam Budh Nagar, Uttar Pradesh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>ABOUT ME</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a detail-oriented <span class="highlight">MIS Executive</span> with <span class="highlight">8+ months of hands-on experience</span> at Click Melon Pvt. Ltd. I specialize in <span class="highlight">data reporting, dashboard creation, Excel & Google Sheets automation, and CRM data management</span>.</p>
+                    <p>I enjoy turning raw data into meaningful insights that help management take better business decisions.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>8+ Months</h3>
+                        <p>Professional Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-table"></i>
+                        <h3>100+</h3>
+                        <p>Reports & Dashboards Created</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-cogs"></i>
+                        <h3>15+</h3>
+                        <p>Processes Automated</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-database"></i>
+                        <h3>100%</h3>
+                        <p>Data Accuracy Commitment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>PROFESSIONAL EXPERIENCE</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>MIS Executive – Click Melon Pvt. Ltd.</h3>
+                        <span class="date">Present | 8+ Months</span>
+                        <ul>
+                            <li>Prepare <span class="highlight">daily, weekly, and monthly MIS reports</span> for management</li>
+                            <li>Create <span class="highlight">interactive dashboards</span> using Advanced Excel & Google Sheets</li>
+                            <li>Analyze large datasets using <span class="highlight">Pivot Tables, VLOOKUP/XLOOKUP, IF, COUNTIF</span></li>
+                            <li>Maintain <span class="highlight">data accuracy and validation</span> across multiple reports</li>
+                            <li>Work on <span class="highlight">CRM tools</span> for lead tracking, follow-ups, and performance analysis</li>
+                            <li>Automate recurring reports using <span class="highlight">Google Apps Script</span></li>
+                            <li>Coordinate with internal teams for timely and accurate data submission</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>SKILLS & TOOLS</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-item highlight">Advanced MS Excel</div>
+                        <div class="skill-item highlight">Google Sheets</div>
+                        <div class="skill-item">Dashboard Creation</div>
+                        <div class="skill-item">MIS Reporting</div>
+                        <div class="skill-item">Data Analysis</div>
+                        <div class="skill-item">Data Validation</div>
+                        <div class="skill-item">CRM Tools</div>
+                        <div class="skill-item">Google Apps Script</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Documentation Skills</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Documentation & Reporting</div>
+                        <div class="skill-item">SOP & Process Documentation</div>
+                        <div class="skill-item">File & Record Management</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>PROJECTS / WORK SAMPLES</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #e3f2fd;">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>MIS Dashboard (Excel / Google Sheets)</h3>
+                        <p>Daily & monthly performance tracking dashboard with interactive charts and automated data feeds for real-time business insights.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #f3e5f5;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Lead Tracking Report</h3>
+                        <p>CRM-based lead and follow-up analysis with conversion tracking, pipeline visualization, and performance metrics.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-color: #e8f5e9;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Automation Project</h3>
+                        <p>Google Apps Script for automated MIS reporting that reduced manual work by 70% and improved report accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Languages -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>EDUCATION & LANGUAGES</h2>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>EDUCATION</h3>
+                    <div class="education-item">
+                        <h4>10th Standard</h4>
+                        <p>Yogi Arvind Sarvodiya Bal Vidyalaya (2020–2021)</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>12th Standard</h4>
+                        <p>Yogi Arvind Sarvodiya Bal Vidyalaya (2022–2023)</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Bachelor of Arts (B.A.)</h4>
+                        <p>Currently Pursuing</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>LANGUAGES</h3>
+                    <div class="languages-list">
+                        <div class="language-item">English</div>
+                        <div class="language-item">Hindi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>STRENGTHS</h2>
+            </div>
+            <div class="strengths">
+                <div class="strength-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Strong Analytical Mindset</h4>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-search"></i>
+                    <h4>High Attention to Detail</h4>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Quick Learner</h4>
+                </div>
+                <div class="strength-item">
+                    <i class="fas fa-comments"></i>
+                    <h4>Effective Communication</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>CONTACT</h2>
+            </div>
+            <p>If you're looking for a reliable MIS Executive skilled in reporting, dashboards, and automation, feel free to connect with me.</p>
+            <div class="contact-buttons">
+                <a href="mailto:kunalkumar805555@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="tel:9643359419" class="contact-btn">
+                    <i class="fas fa-phone"></i> Call Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <h1>KUNAL <span>KUMAR</span></h1>
+            </div>
+            <p>MIS Executive | Data & Reporting Specialist</p>
+            <div class="copyright">
+                <p>&copy; 2023 Kunal Kumar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add current year to copyright
+        document.addEventListener('DOMContentLoaded', function() {
+            const year = new Date().getFullYear();
+            document.querySelector('.copyright p').textContent = `© ${year} Kunal Kumar. All rights reserved.`;
+        });
+    </script>
+</body>
+</html>
