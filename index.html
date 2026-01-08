@@ -7,6 +7,285 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ================================
+           LOADING SCREEN STYLES
+           ================================ */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loading-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .loading-logo span {
+            color: #f59e0b;
+        }
+
+        .loading-text {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Data Loading Animation */
+        .data-loader {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+        }
+
+        .data-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            animation: rotate 3s linear infinite;
+        }
+
+        .data-circle:nth-child(1) {
+            border-top-color: #3b82f6;
+            animation-duration: 2.5s;
+        }
+
+        .data-circle:nth-child(2) {
+            border-right-color: #10b981;
+            animation-duration: 2s;
+            animation-direction: reverse;
+        }
+
+        .data-circle:nth-child(3) {
+            border-bottom-color: #f59e0b;
+            animation-duration: 1.5s;
+        }
+
+        .data-point {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #3b82f6;
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .data-point:nth-child(1) {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0s;
+        }
+
+        .data-point:nth-child(2) {
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            animation-delay: 0.2s;
+        }
+
+        .data-point:nth-child(3) {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 0.4s;
+        }
+
+        .data-point:nth-child(4) {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            animation-delay: 0.6s;
+        }
+
+        .loading-progress {
+            width: 300px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .loading-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            color: #94a3b8;
+        }
+
+        .loading-stat {
+            text-align: center;
+        }
+
+        .loading-stat i {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        /* Analytics Bar Animation */
+        .analytics-bars {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 60px;
+            gap: 8px;
+            margin: 30px 0;
+        }
+
+        .analytics-bar {
+            width: 12px;
+            background: linear-gradient(to top, #3b82f6, #60a5fa);
+            border-radius: 6px 6px 0 0;
+            animation: barGrow 1.5s ease-in-out infinite;
+        }
+
+        .analytics-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+        .analytics-bar:nth-child(2) { height: 40px; animation-delay: 0.1s; }
+        .analytics-bar:nth-child(3) { height: 60px; animation-delay: 0.2s; }
+        .analytics-bar:nth-child(4) { height: 30px; animation-delay: 0.3s; }
+        .analytics-bar:nth-child(5) { height: 50px; animation-delay: 0.4s; }
+        .analytics-bar:nth-child(6) { height: 25px; animation-delay: 0.5s; }
+        .analytics-bar:nth-child(7) { height: 45px; animation-delay: 0.6s; }
+
+        /* Animations */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+            50% { transform: translateX(-50%) scale(1.2); opacity: 0.7; }
+        }
+
+        @keyframes barGrow {
+            0%, 100% { height: var(--initial-height); }
+            50% { height: calc(var(--initial-height) + 15px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .typing-text {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #3b82f6;
+            animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+            max-width: fit-content;
+            margin: 0 auto 20px;
+        }
+
+        /* Responsive Loading Screen */
+        @media (max-width: 768px) {
+            .loading-logo {
+                font-size: 2.2rem;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+            }
+            
+            .data-loader {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .loading-progress {
+                width: 250px;
+            }
+            
+            .analytics-bars {
+                height: 50px;
+            }
+            
+            .analytics-bar {
+                width: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .loading-logo {
+                font-size: 1.8rem;
+            }
+            
+            .data-loader {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .loading-progress {
+                width: 200px;
+            }
+            
+            .loading-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
         :root {
             /* Light Theme Colors */
             --primary: #2563eb;
@@ -1314,6 +1593,56 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">Kunal<span>Kumar</span></div>
+            
+            <div class="typing-text">
+                <h3>Loading Data & Analytics...</h3>
+            </div>
+            
+            <div class="data-loader">
+                <div class="data-circle"></div>
+                <div class="data-circle"></div>
+                <div class="data-circle"></div>
+                <div class="data-point"></div>
+                <div class="data-point"></div>
+                <div class="data-point"></div>
+                <div class="data-point"></div>
+            </div>
+            
+            <div class="analytics-bars">
+                <div class="analytics-bar" style="--initial-height: 20px"></div>
+                <div class="analytics-bar" style="--initial-height: 40px"></div>
+                <div class="analytics-bar" style="--initial-height: 60px"></div>
+                <div class="analytics-bar" style="--initial-height: 30px"></div>
+                <div class="analytics-bar" style="--initial-height: 50px"></div>
+                <div class="analytics-bar" style="--initial-height: 25px"></div>
+                <div class="analytics-bar" style="--initial-height: 45px"></div>
+            </div>
+            
+            <div class="loading-progress">
+                <div class="loading-progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="loading-stats">
+                <div class="loading-stat">
+                    <i class="fas fa-database"></i>
+                    <p>Loading Data...</p>
+                </div>
+                <div class="loading-stat">
+                    <i class="fas fa-chart-line"></i>
+                    <p>Preparing Analytics...</p>
+                </div>
+                <div class="loading-stat">
+                    <i class="fas fa-table"></i>
+                    <p>Generating Reports...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
         <i class="fas fa-moon"></i>
@@ -1775,6 +2104,52 @@
     </footer>
 
     <script>
+        // ================================
+        // LOADING SCREEN FUNCTIONALITY
+        // ================================
+        const loadingScreen = document.getElementById('loadingScreen');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Simulate loading progress
+        function simulateLoading() {
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 10 + 5; // Random increment between 5-15%
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = `${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Add a small delay for smooth transition
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                        
+                        // Enable scrolling after loading
+                        document.body.style.overflow = 'auto';
+                        
+                        // Remove loading screen from DOM after animation
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 800);
+                    }, 500);
+                }
+            }, 150);
+        }
+
+        // Start loading simulation when page loads
+        window.addEventListener('load', () => {
+            // Ensure minimum loading time for better UX
+            setTimeout(simulateLoading, 1000);
+        });
+
+        // Show loading screen immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            // Disable scrolling during loading
+            document.body.style.overflow = 'hidden';
+        });
+
         // Mobile Menu Functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.querySelector('.mobile-menu');
