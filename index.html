@@ -99,13 +99,118 @@
             width: 100%;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
+        /* Resume Download Section - NEW */
+        .resume-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
             color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .resume-section .section-title h2 {
+            color: white;
+        }
+
+        .resume-content {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .resume-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .download-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+        }
+
+        .download-btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--secondary-color);
+        }
+
+        .download-btn i {
+            font-size: 1.3rem;
+        }
+
+        .resume-preview {
+            margin-top: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--secondary-color);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resume-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .resume-preview:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Resume Preview Placeholder */
+        .resume-placeholder {
+            background: white;
+            padding: 40px;
+            color: var(--primary-color);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+
+        .resume-placeholder h3 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            width: 100%;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+        }
+
+        .resume-item {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .resume-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
         }
 
         /* Hero Section */
@@ -511,7 +616,7 @@
 
         /* Contact Section */
         .contact-section {
-            background-color: var(--primary-color);
+            background-color: var(--dark-color);
             color: white;
             text-align: center;
             padding: 100px 0;
@@ -770,10 +875,16 @@
                 width: 100px;
             }
             
-            .contact-btn {
+            .contact-btn,
+            .download-btn {
                 width: 100%;
                 max-width: 300px;
                 justify-content: center;
+            }
+            
+            .download-options {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -810,6 +921,15 @@
             .contact-section {
                 padding: 70px 0;
             }
+            
+            .resume-section {
+                padding: 70px 0;
+            }
+            
+            .download-btn {
+                padding: 15px 25px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -829,6 +949,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#skills">Skills</a></li>
+                        <li><a href="#resume">Resume</a></li> <!-- New Resume Link -->
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#education">Education</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -951,6 +1072,49 @@
                         <div class="skill-item">Documentation & Reporting</div>
                         <div class="skill-item">SOP & Process Documentation</div>
                         <div class="skill-item">File & Record Management</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW Resume Download Section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>DOWNLOAD RESUME</h2>
+            </div>
+            <div class="resume-content">
+                <p>Download my detailed resume to learn more about my professional experience, skills, and qualifications. The resume is available in PDF format for easy viewing and printing.</p>
+                
+                <div class="download-options">
+                    <a href="#" class="download-btn" id="viewResume">
+                        <i class="fas fa-eye"></i> View Resume
+                    </a>
+                    <a href="#" class="download-btn" id="downloadResume">
+                        <i class="fas fa-download"></i> Download PDF
+                    </a>
+                </div>
+                
+                <div class="resume-preview">
+                    <div class="resume-placeholder">
+                        <h3>Kunal Kumar - Resume Preview</h3>
+                        <div class="resume-item">
+                            <h4>MIS Executive</h4>
+                            <p>Click Melon Pvt. Ltd. | 8+ Months Experience</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Skills</h4>
+                            <p>Advanced Excel, Google Sheets, Dashboard Creation, Data Analysis, CRM Tools</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Education</h4>
+                            <p>Bachelor of Arts (Currently Pursuing) | Delhi University</p>
+                        </div>
+                        <div class="resume-item">
+                            <h4>Contact</h4>
+                            <p>+91 96433 59419 | kunalkumar805555@gmail.com</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1189,6 +1353,153 @@
                 
                 return false;
             });
+        });
+
+        // Resume Download Functionality
+        document.getElementById('downloadResume').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a virtual PDF download
+            const resumeContent = `KUNAL KUMAR
+MIS EXECUTIVE
+
+PROFILE
+Detail-oriented MIS Executive with 8 months of experience at Click Melon Pvt. Ltd.
+Skilled in Advanced Excel, Google Sheets, dashboard creation, CRM tools, and reporting automation.
+Known for accurate data handling, insightful reporting, and supporting management with data-driven decisions.
+
+EDUCATION
+10th Standard: Yogi Arvind Sarvodiya Bal Vidyalaya (2020–2021)
+12th Standard: Yogi Arvind Sarvodiya Bal Vidyalaya (2022–2023)
+Bachelor of Arts (B.A.): Delhi University - Chile (2023–Currently Pursuing)
+
+SKILLS
+- Advanced MS Excel
+- Google Sheets
+- Dashboard Creation & MIS Reporting
+- Data Analysis & Data Validation
+- CRM Tools
+- Google Apps Script (Automation – Basics)
+- Documentation & Reporting
+- File & Record Management
+
+WORK EXPERIENCE
+MIS Executive - Click Melon Pvt. Ltd. (JUN 2025 - FEB 2026)
+- Prepare daily, weekly, and monthly MIS reports for management
+- Design interactive dashboards in Excel & Google Sheets
+- Analyze data using Pivot Tables, VLOOKUP/XLOOKUP, IF, COUNTIF
+- Maintain and validate large datasets with high accuracy
+- Manage lead and performance data using CRM tools
+- Automate repetitive reports using Google Apps Script
+- Coordinate with internal teams for timely and accurate data updates
+
+CONTACT
+Phone: +91 96433 59419
+Email: kunalkumar805555@gmail.com
+Location: Dadri, Gautam Budh Nagar, Uttar Pradesh`;
+
+            // Create a Blob with the resume content
+            const blob = new Blob([resumeContent], { type: 'application/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            
+            // Create a temporary link and trigger download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Kunal_Kumar_Resume.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            // Show download notification
+            const notification = document.getElementById('copyNotification');
+            notification.textContent = 'Resume downloaded successfully!';
+            notification.style.backgroundColor = '#2ecc71';
+            showCopyNotification();
+            
+            // Reset notification text after 2 seconds
+            setTimeout(() => {
+                notification.textContent = 'Copied to clipboard!';
+                notification.style.backgroundColor = '#3498db';
+            }, 2000);
+        });
+
+        // View Resume Functionality
+        document.getElementById('viewResume').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a new window with the resume content
+            const resumeWindow = window.open('', '_blank');
+            resumeWindow.document.write(`
+                <html>
+                <head>
+                    <title>Kunal Kumar - Resume</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+                        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+                        h2 { color: #3498db; margin-top: 30px; }
+                        .section { margin-bottom: 30px; }
+                        .contact-info { background: #f5f7fa; padding: 20px; border-radius: 8px; }
+                    </style>
+                </head>
+                <body>
+                    <h1>KUNAL KUMAR</h1>
+                    <h3>MIS Executive | Data & Reporting Specialist</h3>
+                    
+                    <div class="section">
+                        <h2>PROFILE</h2>
+                        <p>Detail-oriented MIS Executive with 8 months of experience at Click Melon Pvt. Ltd. Skilled in Advanced Excel, Google Sheets, dashboard creation, CRM tools, and reporting automation. Known for accurate data handling, insightful reporting, and supporting management with data-driven decisions.</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>EDUCATION</h2>
+                        <p><strong>10th Standard</strong><br>Yogi Arvind Sarvodiya Bal Vidyalaya (2020–2021)</p>
+                        <p><strong>12th Standard</strong><br>Yogi Arvind Sarvodiya Bal Vidyalaya (2022–2023)</p>
+                        <p><strong>Bachelor of Arts (B.A.)</strong><br>Delhi University - Chile (2023–Currently Pursuing)</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>SKILLS</h2>
+                        <ul>
+                            <li>Advanced MS Excel</li>
+                            <li>Google Sheets</li>
+                            <li>Dashboard Creation & MIS Reporting</li>
+                            <li>Data Analysis & Data Validation</li>
+                            <li>CRM Tools</li>
+                            <li>Google Apps Script (Automation – Basics)</li>
+                            <li>Documentation & Reporting</li>
+                            <li>File & Record Management</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h2>WORK EXPERIENCE</h2>
+                        <p><strong>MIS Executive</strong> - Click Melon Pvt. Ltd. (JUN 2025 - FEB 2026)</p>
+                        <ul>
+                            <li>Prepare daily, weekly, and monthly MIS reports for management</li>
+                            <li>Design interactive dashboards in Excel & Google Sheets</li>
+                            <li>Analyze data using Pivot Tables, VLOOKUP/XLOOKUP, IF, COUNTIF</li>
+                            <li>Maintain and validate large datasets with high accuracy</li>
+                            <li>Manage lead and performance data using CRM tools</li>
+                            <li>Automate repetitive reports using Google Apps Script</li>
+                            <li>Coordinate with internal teams for timely and accurate data updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h2>CONTACT INFORMATION</h2>
+                        <p><strong>Phone:</strong> +91 96433 59419</p>
+                        <p><strong>Email:</strong> kunalkumar805555@gmail.com</p>
+                        <p><strong>Location:</strong> Dadri, Gautam Budh Nagar, Uttar Pradesh</p>
+                    </div>
+                    
+                    <div style="margin-top: 50px; text-align: center; color: #7f8c8d;">
+                        <p>© ${new Date().getFullYear()} Kunal Kumar - All rights reserved</p>
+                    </div>
+                </body>
+                </html>
+            `);
+            resumeWindow.document.close();
         });
 
         // Mobile menu toggle for smaller screens
